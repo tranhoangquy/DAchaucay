@@ -46,25 +46,63 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Class\Funtions.cs" />
+    <Compile Include="Class\SqlHelper.cs" />
+    <Compile Include="Form\FormChauCay.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\FormChauCay.Designer.cs">
+      <DependentUpon>FormChauCay.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form\FormKhachHang.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\FormKhachHang.Designer.cs">
+      <DependentUpon>FormKhachHang.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form\FormLoaiChauCay.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\FormLoaiChauCay.Designer.cs">
+      <DependentUpon>FormLoaiChauCay.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormMain.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FormMain.Designer.cs">
       <DependentUpon>FormMain.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormLogin.cs">
+    <Compile Include="Form\FormLogin.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormLogin.Designer.cs">
+    <Compile Include="Form\FormLogin.Designer.cs">
       <DependentUpon>FormLogin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form\FormNhanVien.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\FormNhanVien.Designer.cs">
+      <DependentUpon>FormNhanVien.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="FormLogin.resx">
+    <EmbeddedResource Include="Form\FormChauCay.resx">
+      <DependentUpon>FormChauCay.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\FormKhachHang.resx">
+      <DependentUpon>FormKhachHang.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\FormLoaiChauCay.resx">
+      <DependentUpon>FormLoaiChauCay.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\FormLogin.resx">
       <DependentUpon>FormLogin.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormMain.resx">
       <DependentUpon>FormMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\FormNhanVien.resx">
+      <DependentUpon>FormNhanVien.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

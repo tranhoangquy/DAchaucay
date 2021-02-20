@@ -10,14 +10,15 @@ using System.Windows.Forms;
 
 namespace DAchaucay
 {
+
     public partial class FormMain : Form
     {
         public FormMain()
         {
             InitializeComponent();
         }
-
-        private void btnLogout_Click(object sender, EventArgs e)
+        //logout
+        private void logOutToolStripMenuItem_Click(object sender, EventArgs e)
         {
 
             this.Hide();
@@ -28,9 +29,18 @@ namespace DAchaucay
         {
             Application.Exit();
         }
+        //-----
         private void FormMain_Load(object sender, EventArgs e)
         {
-
+            //Class.Functions.Connect();
         }
+
+        private void mnuThoat_Click(object sender, EventArgs e)
+        {
+           // Class.Functions.Disconnect(); //Đóng kết nối
+            //Application.Exit(); //Thoát
+        }
+
+       
     }
 }
