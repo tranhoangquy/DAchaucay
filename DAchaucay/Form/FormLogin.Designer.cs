@@ -88,6 +88,7 @@
             this.btnDangNhap.Text = "Đăng nhập";
             this.btnDangNhap.UseVisualStyleBackColor = true;
             this.btnDangNhap.Click += new System.EventHandler(this.btnDangNhap_Click);
+            this.btnDangNhap.KeyUp += new System.Windows.Forms.KeyEventHandler(this.btnDangNhap_KeyUp);
             // 
             // FormLogin
             // 

@@ -42,6 +42,8 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.dgvLoaiChauCay = new System.Windows.Forms.DataGridView();
+            this.btnTimkiem = new System.Windows.Forms.Button();
+            this.txtTimkiem = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvLoaiChauCay)).BeginInit();
@@ -49,6 +51,8 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.txtTimkiem);
+            this.panel1.Controls.Add(this.btnTimkiem);
             this.panel1.Controls.Add(this.btnDong);
             this.panel1.Controls.Add(this.btnBoQua);
             this.panel1.Controls.Add(this.btnLuu);
@@ -56,9 +60,9 @@
             this.panel1.Controls.Add(this.btnXoa);
             this.panel1.Controls.Add(this.btnThem);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel1.Location = new System.Drawing.Point(0, 395);
+            this.panel1.Location = new System.Drawing.Point(0, 353);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(800, 55);
+            this.panel1.Size = new System.Drawing.Size(800, 97);
             this.panel1.TabIndex = 0;
             // 
             // btnDong
@@ -69,6 +73,7 @@
             this.btnDong.TabIndex = 5;
             this.btnDong.Text = "Đóng";
             this.btnDong.UseVisualStyleBackColor = true;
+            this.btnDong.Click += new System.EventHandler(this.btnDong_Click);
             // 
             // btnBoQua
             // 
@@ -78,6 +83,7 @@
             this.btnBoQua.TabIndex = 4;
             this.btnBoQua.Text = "Bỏ qua";
             this.btnBoQua.UseVisualStyleBackColor = true;
+            this.btnBoQua.Click += new System.EventHandler(this.btnBoQua_Click);
             // 
             // btnLuu
             // 
@@ -87,6 +93,7 @@
             this.btnLuu.TabIndex = 3;
             this.btnLuu.Text = "Lưu";
             this.btnLuu.UseVisualStyleBackColor = true;
+            this.btnLuu.Click += new System.EventHandler(this.btnLuu_Click);
             // 
             // btnSua
             // 
@@ -96,6 +103,7 @@
             this.btnSua.TabIndex = 2;
             this.btnSua.Text = "Sửa";
             this.btnSua.UseVisualStyleBackColor = true;
+            this.btnSua.Click += new System.EventHandler(this.btnSua_Click);
             // 
             // btnXoa
             // 
@@ -105,6 +113,7 @@
             this.btnXoa.TabIndex = 1;
             this.btnXoa.Text = "Xóa";
             this.btnXoa.UseVisualStyleBackColor = true;
+            this.btnXoa.Click += new System.EventHandler(this.btnXoa_Click);
             // 
             // btnThem
             // 
@@ -114,6 +123,7 @@
             this.btnThem.TabIndex = 0;
             this.btnThem.Text = "Thêm";
             this.btnThem.UseVisualStyleBackColor = true;
+            this.btnThem.Click += new System.EventHandler(this.btnThem_Click);
             // 
             // panel2
             // 
@@ -141,6 +151,7 @@
             this.txtMaLCC.Name = "txtMaLCC";
             this.txtMaLCC.Size = new System.Drawing.Size(197, 20);
             this.txtMaLCC.TabIndex = 3;
+            this.txtMaLCC.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtMaLCC_KeyUp);
             // 
             // label3
             // 
@@ -178,8 +189,25 @@
             this.dgvLoaiChauCay.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvLoaiChauCay.Location = new System.Drawing.Point(0, 105);
             this.dgvLoaiChauCay.Name = "dgvLoaiChauCay";
-            this.dgvLoaiChauCay.Size = new System.Drawing.Size(800, 290);
+            this.dgvLoaiChauCay.Size = new System.Drawing.Size(800, 248);
             this.dgvLoaiChauCay.TabIndex = 2;
+            this.dgvLoaiChauCay.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvLoaiChauCay_CellContentClick);
+            // 
+            // btnTimkiem
+            // 
+            this.btnTimkiem.Location = new System.Drawing.Point(463, 58);
+            this.btnTimkiem.Name = "btnTimkiem";
+            this.btnTimkiem.Size = new System.Drawing.Size(75, 23);
+            this.btnTimkiem.TabIndex = 6;
+            this.btnTimkiem.Text = "Tìm kiếm";
+            this.btnTimkiem.UseVisualStyleBackColor = true;
+            // 
+            // txtTimkiem
+            // 
+            this.txtTimkiem.Location = new System.Drawing.Point(336, 58);
+            this.txtTimkiem.Name = "txtTimkiem";
+            this.txtTimkiem.Size = new System.Drawing.Size(100, 20);
+            this.txtTimkiem.TabIndex = 7;
             // 
             // FormLoaiChauCay
             // 
@@ -191,7 +219,9 @@
             this.Controls.Add(this.panel1);
             this.Name = "FormLoaiChauCay";
             this.Text = "Chất liệu";
+            this.Load += new System.EventHandler(this.FormLoaiChauCay_Load);
             this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvLoaiChauCay)).EndInit();
@@ -215,5 +245,7 @@
         private System.Windows.Forms.TextBox txtMaLCC;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TextBox txtTimkiem;
+        private System.Windows.Forms.Button btnTimkiem;
     }
 }

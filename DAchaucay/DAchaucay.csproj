@@ -46,7 +46,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class\Funtions.cs" />
+    <Compile Include="Class\Functions.cs" />
     <Compile Include="Class\SqlHelper.cs" />
     <Compile Include="Form\FormChauCay.cs">
       <SubType>Form</SubType>

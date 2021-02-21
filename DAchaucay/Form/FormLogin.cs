@@ -41,20 +41,26 @@ namespace DAchaucay
                 //If count is equal to 1, than show frmMain form
                 if (count == 1)
                 {
-                    MessageBox.Show("Login Successful!");
+                    MessageBox.Show("Đăng nhập thành công!");
                     this.Hide();
                     FormMain fm = new FormMain();
                     fm.Show();
                 }
                 else
                 {
-                    MessageBox.Show("Login Failed!");
+                    MessageBox.Show("Đăng nhập thất bại!");
                 }
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
+        }
+
+        private void btnDangNhap_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+                SendKeys.Send("{TAB}");
         }
     }
     }

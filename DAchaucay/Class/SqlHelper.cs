@@ -12,7 +12,7 @@ namespace DAchaucay.Class
     {
         public static int loainguoidung;
         public static string tennguoidung;
-        public static string ConnectString = @"Data Source=.\SQLEXPRESS;AttachDbFilename=" + Application.StartupPath + @"\QLquatrinhbanhang;Integrated Security=True";
+        public static string ConnectString = @"Data Source=DESKTOP-PF3DC38\SQLEXPRESS;Initial Catalog=QLquatrinhbanhang;Integrated Security=True";
         public static SqlConnection con;
     }
 }

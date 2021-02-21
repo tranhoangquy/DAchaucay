@@ -32,15 +32,42 @@ namespace DAchaucay
         //-----
         private void FormMain_Load(object sender, EventArgs e)
         {
-            //Class.Functions.Connect();
+            Class.Functions.Connect();
         }
 
         private void mnuThoat_Click(object sender, EventArgs e)
         {
-           // Class.Functions.Disconnect(); //Đóng kết nối
-            //Application.Exit(); //Thoát
+            Class.Functions.Disconnect(); //Đóng kết nối
+            Application.Exit(); //Thoát
         }
 
-       
+        private void loạiChậuCâyToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            {
+                FormLoaiChauCay formLoaiChauCay= new FormLoaiChauCay(); //Khởi tạo đối tượng
+                formLoaiChauCay.ShowDialog(); //Hiển thị
+            }
+        }
+
+        private void nhânViênToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            {
+                FormNhanVien formNhanVien = new FormNhanVien();
+                formNhanVien.ShowDialog();
+            }
+        }
+
+        private void hóaĐơnToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            {
+                FormKhachHang formKhachHang = new FormKhachHang();
+                formKhachHang.ShowDialog();
+            }
+        }
+
+        private void hóaĐơnToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
