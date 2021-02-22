@@ -80,5 +80,11 @@ namespace DAchaucay
                 formChauCay.ShowDialog();
             }
         }
+
+        private void tìmHóaĐơnToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FormHoaDon formHoaDon = new FormHoaDon();
+            formHoaDon.ShowDialog();
+        }
     }
 }

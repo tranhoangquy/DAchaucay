@@ -48,6 +48,12 @@
   <ItemGroup>
     <Compile Include="Class\Functions.cs" />
     <Compile Include="Class\SqlHelper.cs" />
+    <Compile Include="Form\FormHoaDon.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\FormHoaDon.Designer.cs">
+      <DependentUpon>FormHoaDon.cs</DependentUpon>
+    </Compile>
     <Compile Include="Form\FormChiTietHoaDon.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -92,6 +98,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Form\FormHoaDon.resx">
+      <DependentUpon>FormHoaDon.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form\FormChiTietHoaDon.resx">
       <DependentUpon>FormChiTietHoaDon.cs</DependentUpon>
     </EmbeddedResource>
