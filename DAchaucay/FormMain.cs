@@ -67,7 +67,18 @@ namespace DAchaucay
 
         private void hóaĐơnToolStripMenuItem1_Click(object sender, EventArgs e)
         {
+            {
+                FormChiTietHoaDon formChiTietHoaDon = new FormChiTietHoaDon();
+                formChiTietHoaDon.ShowDialog();
+            }
+        }
 
+        private void chậuCâyToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            {
+                FormChauCay formChauCay = new FormChauCay();
+                formChauCay.ShowDialog();
+            }
         }
     }
 }

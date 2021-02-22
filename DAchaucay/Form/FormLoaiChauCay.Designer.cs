@@ -43,7 +43,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.dgvLoaiChauCay = new System.Windows.Forms.DataGridView();
             this.btnTimkiem = new System.Windows.Forms.Button();
-            this.txtTimkiem = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvLoaiChauCay)).BeginInit();
@@ -51,7 +50,6 @@
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.txtTimkiem);
             this.panel1.Controls.Add(this.btnTimkiem);
             this.panel1.Controls.Add(this.btnDong);
             this.panel1.Controls.Add(this.btnBoQua);
@@ -195,19 +193,12 @@
             // 
             // btnTimkiem
             // 
-            this.btnTimkiem.Location = new System.Drawing.Point(463, 58);
+            this.btnTimkiem.Location = new System.Drawing.Point(649, 16);
             this.btnTimkiem.Name = "btnTimkiem";
             this.btnTimkiem.Size = new System.Drawing.Size(75, 23);
             this.btnTimkiem.TabIndex = 6;
             this.btnTimkiem.Text = "Tìm kiếm";
             this.btnTimkiem.UseVisualStyleBackColor = true;
-            // 
-            // txtTimkiem
-            // 
-            this.txtTimkiem.Location = new System.Drawing.Point(336, 58);
-            this.txtTimkiem.Name = "txtTimkiem";
-            this.txtTimkiem.Size = new System.Drawing.Size(100, 20);
-            this.txtTimkiem.TabIndex = 7;
             // 
             // FormLoaiChauCay
             // 
@@ -221,7 +212,6 @@
             this.Text = "Chất liệu";
             this.Load += new System.EventHandler(this.FormLoaiChauCay_Load);
             this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvLoaiChauCay)).EndInit();
@@ -245,7 +235,6 @@
         private System.Windows.Forms.TextBox txtMaLCC;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox txtTimkiem;
         private System.Windows.Forms.Button btnTimkiem;
     }
 }

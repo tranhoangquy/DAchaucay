@@ -85,5 +85,133 @@ namespace DAchaucay
             txtDiachi.Text = "";
             txtDienthoai.Text = "";
         }
+
+        private void btnLuu_Click(object sender, EventArgs e)
+        {
+            string sql;
+            if (txtMaKH.Text.Trim().Length == 0)
+            {
+                MessageBox.Show("Bạn phải nhập mã khách", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                txtMaKH.Focus();
+                return;
+            }
+            if (txtTenKH.Text.Trim().Length == 0)
+            {
+                MessageBox.Show("Bạn phải nhập tên khách", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                txtTenKH.Focus();
+                return;
+            }
+            if (txtDiachi.Text.Trim().Length == 0)
+            {
+                MessageBox.Show("Bạn phải nhập địa chỉ", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                txtDiachi.Focus();
+                return;
+            }
+            if (txtDienthoai.Text == "(  )    -")
+            {
+                MessageBox.Show("Bạn phải nhập điện thoại", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                txtDienthoai.Focus();
+                return;
+            }
+            //Kiểm tra đã tồn tại mã khách chưa
+            /*sql = "SELECT MaKhach FROM tblKhachhang WHERE Makhachhang=N'" + txtMaKH.Text.Trim() + "'";
+            if (Functions.CheckKey(sql))
+            {
+                MessageBox.Show("Mã khách này đã tồn tại", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                txtMaKH.Focus();
+                return;
+            }*/
+            //Chèn thêm
+            sql = "INSERT INTO tblKhachhang VALUES (N'" + txtMaKH.Text.Trim() +
+                "',N'" + txtTenKH.Text.Trim() + "',N'" + txtDiachi.Text.Trim() + "','" + txtDienthoai.Text + "')";
+            Functions.RunSQL(sql);
+            LoadDataGridView();
+            ResetValues();
+
+            btnXoa.Enabled = true;
+            btnThem.Enabled = true;
+            btnSua.Enabled = true;
+            btnBoQua.Enabled = false;
+            btnLuu.Enabled = false;
+            txtMaKH.Enabled = false;
+        }
+
+        private void btnSua_Click(object sender, EventArgs e)
+        {
+            string sql;
+            if (tblKhachhang.Rows.Count == 0)
+            {
+                MessageBox.Show("Không còn dữ liệu", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+            if (txtMaKH.Text == "")
+            {
+                MessageBox.Show("Bạn phải chọn bản ghi cần sửa", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+            if (txtTenKH.Text.Trim().Length == 0)
+            {
+                MessageBox.Show("Bạn phải nhập tên khách", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                txtTenKH.Focus();
+                return;
+            }
+            if (txtDiachi.Text.Trim().Length == 0)
+            {
+                MessageBox.Show("Bạn phải nhập địa chỉ", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                txtDiachi.Focus();
+                return;
+            }
+            if (txtDienthoai.Text == "(  )    -")
+            {
+                MessageBox.Show("Bạn phải nhập điện thoại", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                txtDienthoai.Focus();
+                return;
+            }
+            sql = "UPDATE tblKhachhang SET Tenkhachhang=N'" + txtTenKH.Text.Trim().ToString() + "',Diachi=N'" +
+                txtDiachi.Text.Trim().ToString() + "',Dienthoai='" + txtDienthoai.Text.ToString() +
+                "' WHERE Makhachhang=N'" + txtMaKH.Text + "'";
+            Functions.RunSQL(sql);
+            LoadDataGridView();
+            ResetValues();
+            btnBoQua.Enabled = false;
+        }
+
+        private void btnXoa_Click(object sender, EventArgs e)
+        {
+            string sql;
+            if (tblKhachhang.Rows.Count == 0)
+            {
+                MessageBox.Show("Không còn dữ liệu", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+            if (txtMaKH.Text.Trim() == "")
+            {
+                MessageBox.Show("Bạn chưa chọn bản ghi nào", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+            if (MessageBox.Show("Bạn có muốn xoá bản ghi này không?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                sql = "DELETE tblKhachhang WHERE Makhachhang=N'" + txtMaKH.Text + "'";
+                Functions.RunSqlDel(sql);
+                LoadDataGridView();
+                ResetValues();
+            }
+        }
+
+        private void btnBoQua_Click(object sender, EventArgs e)
+        {
+            ResetValues();
+            btnBoQua.Enabled = false;
+            btnThem.Enabled = true;
+            btnXoa.Enabled = true;
+            btnSua.Enabled = true;
+            btnLuu.Enabled = false;
+            txtMaKH.Enabled = false;
+        }
+
+        private void btnDong_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

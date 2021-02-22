@@ -48,6 +48,12 @@
   <ItemGroup>
     <Compile Include="Class\Functions.cs" />
     <Compile Include="Class\SqlHelper.cs" />
+    <Compile Include="Form\FormChiTietHoaDon.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\FormChiTietHoaDon.Designer.cs">
+      <DependentUpon>FormChiTietHoaDon.cs</DependentUpon>
+    </Compile>
     <Compile Include="Form\FormChauCay.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -86,6 +92,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Form\FormChiTietHoaDon.resx">
+      <DependentUpon>FormChiTietHoaDon.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form\FormChauCay.resx">
       <DependentUpon>FormChauCay.cs</DependentUpon>
     </EmbeddedResource>

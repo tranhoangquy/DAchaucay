@@ -101,6 +101,7 @@
             this.chậuCâyToolStripMenuItem.Name = "chậuCâyToolStripMenuItem";
             this.chậuCâyToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.chậuCâyToolStripMenuItem.Text = "Chậu cây";
+            this.chậuCâyToolStripMenuItem.Click += new System.EventHandler(this.chậuCâyToolStripMenuItem_Click);
             // 
             // nhânViênToolStripMenuItem
             // 
