@@ -272,7 +272,9 @@ namespace DAchaucay
 
         private void btnDong_Click(object sender, EventArgs e)
         {
-            this.Close();
+            FormMain formMain = new FormMain();
+            formMain.Show();
+            Visible = false;
         }
     }
 }

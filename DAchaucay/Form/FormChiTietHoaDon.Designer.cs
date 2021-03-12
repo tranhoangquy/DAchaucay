@@ -29,11 +29,13 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btnInhoadon = new System.Windows.Forms.Button();
             this.cboMaHD = new System.Windows.Forms.ComboBox();
             this.btnTimKiem = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btnThemkhachhang = new System.Windows.Forms.Button();
             this.cboTennhanvien = new System.Windows.Forms.ComboBox();
             this.txtManhanvien = new System.Windows.Forms.TextBox();
             this.txtMakhach = new System.Windows.Forms.TextBox();
@@ -68,7 +70,6 @@
             this.label13 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
-            this.btnInhoadon = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
@@ -90,6 +91,16 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(885, 39);
             this.panel1.TabIndex = 0;
+            // 
+            // btnInhoadon
+            // 
+            this.btnInhoadon.Location = new System.Drawing.Point(541, 6);
+            this.btnInhoadon.Name = "btnInhoadon";
+            this.btnInhoadon.Size = new System.Drawing.Size(122, 30);
+            this.btnInhoadon.TabIndex = 17;
+            this.btnInhoadon.Text = "In hóa đơn";
+            this.btnInhoadon.UseVisualStyleBackColor = true;
+            this.btnInhoadon.Click += new System.EventHandler(this.btnInhoadon_Click);
             // 
             // cboMaHD
             // 
@@ -140,6 +151,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.btnThemkhachhang);
             this.groupBox1.Controls.Add(this.cboTennhanvien);
             this.groupBox1.Controls.Add(this.txtManhanvien);
             this.groupBox1.Controls.Add(this.txtMakhach);
@@ -164,6 +176,16 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Thông tin chung";
             // 
+            // btnThemkhachhang
+            // 
+            this.btnThemkhachhang.Location = new System.Drawing.Point(748, 11);
+            this.btnThemkhachhang.Name = "btnThemkhachhang";
+            this.btnThemkhachhang.Size = new System.Drawing.Size(125, 23);
+            this.btnThemkhachhang.TabIndex = 21;
+            this.btnThemkhachhang.Text = "Thêm khách hàng";
+            this.btnThemkhachhang.UseVisualStyleBackColor = true;
+            this.btnThemkhachhang.Click += new System.EventHandler(this.btnThemkhachhang_Click);
+            // 
             // cboTennhanvien
             // 
             this.cboTennhanvien.FormattingEnabled = true;
@@ -186,6 +208,7 @@
             this.txtMakhach.Name = "txtMakhach";
             this.txtMakhach.Size = new System.Drawing.Size(231, 20);
             this.txtMakhach.TabIndex = 18;
+            this.txtMakhach.TextChanged += new System.EventHandler(this.txtMakhach_TextChanged);
             // 
             // cboTenkhach
             // 
@@ -211,6 +234,7 @@
             this.txtDienthoai.Name = "txtDienthoai";
             this.txtDienthoai.Size = new System.Drawing.Size(231, 20);
             this.txtDienthoai.TabIndex = 14;
+            this.txtDienthoai.TextChanged += new System.EventHandler(this.txtDienthoai_TextChanged);
             // 
             // txtDiachi
             // 
@@ -473,16 +497,6 @@
             this.label11.Text = "Mã chậu cây";
             this.label11.Click += new System.EventHandler(this.label11_Click);
             // 
-            // btnInhoadon
-            // 
-            this.btnInhoadon.Location = new System.Drawing.Point(541, 6);
-            this.btnInhoadon.Name = "btnInhoadon";
-            this.btnInhoadon.Size = new System.Drawing.Size(122, 30);
-            this.btnInhoadon.TabIndex = 17;
-            this.btnInhoadon.Text = "In hóa đơn";
-            this.btnInhoadon.UseVisualStyleBackColor = true;
-            this.btnInhoadon.Click += new System.EventHandler(this.btnInhoadon_Click);
-            // 
             // FormChiTietHoaDon
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -552,5 +566,6 @@
         private System.Windows.Forms.ComboBox cboTenchaucay;
         private System.Windows.Forms.TextBox txtMachaucay;
         private System.Windows.Forms.Button btnInhoadon;
+        private System.Windows.Forms.Button btnThemkhachhang;
     }
 }

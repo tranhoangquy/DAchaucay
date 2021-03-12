@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btnTimkiem = new System.Windows.Forms.Button();
             this.btnDong = new System.Windows.Forms.Button();
             this.btnBoQua = new System.Windows.Forms.Button();
             this.btnLuu = new System.Windows.Forms.Button();
@@ -43,9 +44,7 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.txtKichthuoc = new System.Windows.Forms.TextBox();
-            this.txtTenCC = new System.Windows.Forms.TextBox();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.cboMaLCC = new System.Windows.Forms.ComboBox();
             this.btnOpen = new System.Windows.Forms.Button();
             this.picAnh = new System.Windows.Forms.PictureBox();
             this.txtAnh = new System.Windows.Forms.TextBox();
@@ -54,7 +53,8 @@
             this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.btnTimkiem = new System.Windows.Forms.Button();
+            this.txtMaLCC = new System.Windows.Forms.TextBox();
+            this.cboTenCC = new System.Windows.Forms.ComboBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCC)).BeginInit();
             this.panel2.SuspendLayout();
@@ -75,6 +75,16 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(800, 91);
             this.panel1.TabIndex = 0;
+            // 
+            // btnTimkiem
+            // 
+            this.btnTimkiem.Location = new System.Drawing.Point(692, 17);
+            this.btnTimkiem.Name = "btnTimkiem";
+            this.btnTimkiem.Size = new System.Drawing.Size(75, 23);
+            this.btnTimkiem.TabIndex = 12;
+            this.btnTimkiem.Text = "Tìm kiếm";
+            this.btnTimkiem.UseVisualStyleBackColor = true;
+            this.btnTimkiem.Click += new System.EventHandler(this.btnTimkiem_Click);
             // 
             // btnDong
             // 
@@ -169,7 +179,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(12, 81);
+            this.label3.Location = new System.Drawing.Point(12, 112);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(92, 13);
             this.label3.TabIndex = 18;
@@ -185,7 +195,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(12, 112);
+            this.label4.Location = new System.Drawing.Point(16, 81);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(73, 13);
             this.label4.TabIndex = 21;
@@ -207,16 +217,10 @@
             this.txtKichthuoc.Size = new System.Drawing.Size(165, 20);
             this.txtKichthuoc.TabIndex = 23;
             // 
-            // txtTenCC
-            // 
-            this.txtTenCC.Location = new System.Drawing.Point(110, 109);
-            this.txtTenCC.Name = "txtTenCC";
-            this.txtTenCC.Size = new System.Drawing.Size(165, 20);
-            this.txtTenCC.TabIndex = 29;
-            // 
             // panel2
             // 
-            this.panel2.Controls.Add(this.cboMaLCC);
+            this.panel2.Controls.Add(this.cboTenCC);
+            this.panel2.Controls.Add(this.txtMaLCC);
             this.panel2.Controls.Add(this.btnOpen);
             this.panel2.Controls.Add(this.picAnh);
             this.panel2.Controls.Add(this.txtAnh);
@@ -225,7 +229,6 @@
             this.panel2.Controls.Add(this.label8);
             this.panel2.Controls.Add(this.label7);
             this.panel2.Controls.Add(this.label5);
-            this.panel2.Controls.Add(this.txtTenCC);
             this.panel2.Controls.Add(this.txtKichthuoc);
             this.panel2.Controls.Add(this.label6);
             this.panel2.Controls.Add(this.label4);
@@ -239,14 +242,6 @@
             this.panel2.Size = new System.Drawing.Size(800, 181);
             this.panel2.TabIndex = 1;
             this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
-            // 
-            // cboMaLCC
-            // 
-            this.cboMaLCC.FormattingEnabled = true;
-            this.cboMaLCC.Location = new System.Drawing.Point(110, 72);
-            this.cboMaLCC.Name = "cboMaLCC";
-            this.cboMaLCC.Size = new System.Drawing.Size(165, 21);
-            this.cboMaLCC.TabIndex = 38;
             // 
             // btnOpen
             // 
@@ -315,15 +310,20 @@
             this.label5.TabIndex = 30;
             this.label5.Text = "Đơn giá";
             // 
-            // btnTimkiem
+            // txtMaLCC
             // 
-            this.btnTimkiem.Location = new System.Drawing.Point(692, 17);
-            this.btnTimkiem.Name = "btnTimkiem";
-            this.btnTimkiem.Size = new System.Drawing.Size(75, 23);
-            this.btnTimkiem.TabIndex = 12;
-            this.btnTimkiem.Text = "Tìm kiếm";
-            this.btnTimkiem.UseVisualStyleBackColor = true;
-            this.btnTimkiem.Click += new System.EventHandler(this.btnTimkiem_Click);
+            this.txtMaLCC.Location = new System.Drawing.Point(111, 112);
+            this.txtMaLCC.Name = "txtMaLCC";
+            this.txtMaLCC.Size = new System.Drawing.Size(164, 20);
+            this.txtMaLCC.TabIndex = 38;
+            // 
+            // cboTenCC
+            // 
+            this.cboTenCC.FormattingEnabled = true;
+            this.cboTenCC.Location = new System.Drawing.Point(110, 81);
+            this.cboTenCC.Name = "cboTenCC";
+            this.cboTenCC.Size = new System.Drawing.Size(165, 21);
+            this.cboTenCC.TabIndex = 39;
             // 
             // FormChauCay
             // 
@@ -362,7 +362,6 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox txtKichthuoc;
-        private System.Windows.Forms.TextBox txtTenCC;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.PictureBox picAnh;
         private System.Windows.Forms.TextBox txtAnh;
@@ -372,7 +371,8 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Button btnOpen;
-        private System.Windows.Forms.ComboBox cboMaLCC;
         private System.Windows.Forms.Button btnTimkiem;
+        private System.Windows.Forms.ComboBox cboTenCC;
+        private System.Windows.Forms.TextBox txtMaLCC;
     }
 }

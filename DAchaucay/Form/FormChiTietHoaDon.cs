@@ -37,9 +37,7 @@ namespace DAchaucay
             btnXoa.Enabled = true;
             txtMaHDBan.ReadOnly = true;
             txtManhanvien.ReadOnly = true;
-            txtMakhach.ReadOnly = true;
             txtDiachi.ReadOnly = true;
-            txtDienthoai.ReadOnly = true;
             txtMachaucay.ReadOnly = true;
             txtDongia.ReadOnly = true;
            /* txtThanhtien.ReadOnly = true;
@@ -70,7 +68,7 @@ namespace DAchaucay
             txtManhanvien.Text = Functions.GetFieldValues(str);
             str = "SELECT Makhachhang FROM tblHoadon WHERE Mahoadon = N'" + txtMaHDBan.Text + "'";
             txtMakhach.Text = Functions.GetFieldValues(str);
-          
+            
         }
 
         private void LoadDataGridView()
@@ -111,16 +109,16 @@ namespace DAchaucay
             cboTenkhach.Text = "";
             /*    txtTongtien.Text = "0";*/
             //lblBangchu.Text = "Bằng chữ: ";
-            txtMachaucay.Text = "";
-            txtSoluong.Text = "";
-            txtGiamgia.Text = "0";
-            txtDiachi.Text = "";
-            txtDienthoai.Text = "";
-            txtDongia.Text = "";
-            txtMakhach.Text = "";
-            cboTenchaucay.Text = "";
-            txtMachaucay.Text = "";
-            txtDongia.Text = "";
+            //txtMachaucay.Text = "";
+            //txtSoluong.Text = "";
+            //txtGiamgia.Text = "0";
+            //txtDiachi.Text = "";
+            //txtDienthoai.Text = "";
+            //txtDongia.Text = "";
+            //txtMakhach.Text = "";
+            //cboTenchaucay.Text = "";
+            //txtMachaucay.Text = "";
+            //txtDongia.Text = "";
             /* txtThanhtien.Text = "0";*/
         }
 
@@ -237,7 +235,9 @@ namespace DAchaucay
 
         private void btnDong_Click(object sender, EventArgs e)
         {
-            this.Close();
+            FormMain formMain = new FormMain();
+            formMain.Show();
+            Visible = false;
         }
 
         private void btnXoa_Click(object sender, EventArgs e)
@@ -291,7 +291,7 @@ namespace DAchaucay
             LoadDataGridView();
             btnXoa.Enabled = true;
             btnLuu.Enabled = true;
-           /* btnInhoadon.Enabled = true;*/
+           btnInhoadon.Enabled = true;
             cboMaHD.SelectedIndex = -1;
         }
 
@@ -391,13 +391,13 @@ namespace DAchaucay
             exRange.Range["C6:E6"].Value = tblThongtinHD.Rows[0][0].ToString();
             exRange.Range["B7:B7"].Value = "Khách hàng:";
             exRange.Range["C7:E7"].MergeCells = true;
-            exRange.Range["C7:E7"].Value = tblThongtinHD.Rows[0][3].ToString();
+            exRange.Range["C7:E7"].Value = tblThongtinHD.Rows[0][2].ToString();
             exRange.Range["B8:B8"].Value = "Địa chỉ:";
             exRange.Range["C8:E8"].MergeCells = true;
-            exRange.Range["C8:E8"].Value = tblThongtinHD.Rows[0][4].ToString();
+            exRange.Range["C8:E8"].Value = tblThongtinHD.Rows[0][3].ToString();
             exRange.Range["B9:B9"].Value = "Điện thoại:";
             exRange.Range["C9:E9"].MergeCells = true;
-            exRange.Range["C9:E9"].Value = tblThongtinHD.Rows[0][5].ToString();
+            exRange.Range["C9:E9"].Value = tblThongtinHD.Rows[0][4].ToString();
             //Lấy thông tin các mặt hàng
             sql = "SELECT b.Tenhaucay, a.Soluong, b.Dongia, a.Giamgia " +
                   "FROM tblChitiethoadon AS a , tblChaucay AS b WHERE a.Mahoadon = N'" +
@@ -449,6 +449,50 @@ namespace DAchaucay
             exRange.Range["A6:C6"].HorizontalAlignment = COMExcel.XlHAlign.xlHAlignCenter;
             exSheet.Name = "Hóa đơn nhập";
             exApp.Visible = true;
+        }
+
+        private void btnThemkhachhang_Click(object sender, EventArgs e)
+        {
+
+            FormKhachHang formKhachHang = new FormKhachHang();
+            formKhachHang.Show();
+            Visible = false;
+        }
+
+        private void txtMakhach_TextChanged(object sender, EventArgs e)
+        {
+            string str;
+            if (txtMakhach.Text == "")
+            {
+                cboTenkhach.Text = "";
+                txtDiachi.Text = "";
+                txtDienthoai.Text = "";
+            }
+            //Khi chọn Mã khách hàng thì các thông tin của khách hàng sẽ hiện ra
+            str = "Select Tenkhachhang from tblKhachhang where Makhachhang = N'" + txtMakhach.Text.Trim() + "'";
+            cboTenkhach.Text = Functions.GetFieldValues(str);
+            str = "Select Diachi from tblKhachhang where Makhachhang = N'" + txtMakhach.Text.Trim() + "'";
+            txtDiachi.Text = Functions.GetFieldValues(str);
+            str = "Select Dienthoai from tblKhachhang where Makhachhang= N'" + txtMakhach.Text.Trim() + "'";
+            txtDienthoai.Text = Functions.GetFieldValues(str);
+        }
+
+        private void txtDienthoai_TextChanged(object sender, EventArgs e)
+        {
+            string str;
+            if (txtDienthoai.Text == "")
+            {
+                cboTenkhach.Text = "";
+                txtDiachi.Text = "";
+                txtMakhach.Text = "";
+            }
+            //Khi chọn Mã khách hàng thì các thông tin của khách hàng sẽ hiện ra
+            str = "Select Tenkhachhang from tblKhachhang where Dienthoai = N'" + txtDienthoai.Text.Trim() + "'";
+            cboTenkhach.Text = Functions.GetFieldValues(str);
+            str = "Select Diachi from tblKhachhang where Dienthoai = N'" + txtDienthoai.Text.Trim() + "'";
+            txtDiachi.Text = Functions.GetFieldValues(str);
+            str = "Select Makhachhang from tblKhachhang where Dienthoai= N'" + txtDienthoai.Text.Trim() + "'";
+            cboTenkhach.Text = Functions.GetFieldValues(str);
         }
     }
     

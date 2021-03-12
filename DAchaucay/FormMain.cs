@@ -45,7 +45,8 @@ namespace DAchaucay
         {
             {
                 FormLoaiChauCay formLoaiChauCay= new FormLoaiChauCay(); //Khởi tạo đối tượng
-                formLoaiChauCay.ShowDialog(); //Hiển thị
+                formLoaiChauCay.Show(); //Hiển thị
+                Visible = false;
             }
         }
 
@@ -53,7 +54,8 @@ namespace DAchaucay
         {
             {
                 FormNhanVien formNhanVien = new FormNhanVien();
-                formNhanVien.ShowDialog();
+                formNhanVien.Show();
+                Visible = false;
             }
         }
 
@@ -61,7 +63,8 @@ namespace DAchaucay
         {
             {
                 FormKhachHang formKhachHang = new FormKhachHang();
-                formKhachHang.ShowDialog();
+                formKhachHang.Show();
+                Visible = false;
             }
         }
 
@@ -69,7 +72,8 @@ namespace DAchaucay
         {
             {
                 FormChiTietHoaDon formChiTietHoaDon = new FormChiTietHoaDon();
-                formChiTietHoaDon.ShowDialog();
+                formChiTietHoaDon.Show();
+                Visible = false;
             }
         }
 
@@ -77,14 +81,23 @@ namespace DAchaucay
         {
             {
                 FormChauCay formChauCay = new FormChauCay();
-                formChauCay.ShowDialog();
+                formChauCay.Show();
+                Visible = false;
             }
         }
 
         private void tìmHóaĐơnToolStripMenuItem_Click(object sender, EventArgs e)
         {
             FormHoaDon formHoaDon = new FormHoaDon();
-            formHoaDon.ShowDialog();
+            formHoaDon.Show();
+            Visible = false;
+        }
+
+        private void hóaĐơnToolStripMenuItem2_Click(object sender, EventArgs e)
+        {
+            FormbaocaoHD formbaocaoHD = new FormbaocaoHD();
+            formbaocaoHD.Show();
+            Visible = false;
         }
     }
 }
