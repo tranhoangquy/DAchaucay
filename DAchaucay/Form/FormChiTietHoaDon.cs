@@ -378,7 +378,7 @@ namespace DAchaucay
             exRange.Range["A3:B3"].Value = "Điện thoại: 0123456789";
             exRange.Range["C2:E2"].Font.Size = 16;
             exRange.Range["C2:E2"].Font.Bold = true;
-            exRange.Range["C2:E2"].Font.ColorIndex = 3; //Màu đỏ
+            exRange.Range["C2:E2"].Font.ColorIndex = 3; //red
             exRange.Range["C2:E2"].MergeCells = true;
             exRange.Range["C2:E2"].HorizontalAlignment = COMExcel.XlHAlign.xlHAlignCenter;
             exRange.Range["C2:E2"].Value = "HÓA ĐƠN BÁN";
