@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<xs:schema id="dsHoadon" targetNamespace="http://tempuri.org/dsHoadon.xsd" xmlns:mstns="http://tempuri.org/dsHoadon.xsd" xmlns="http://tempuri.org/dsHoadon.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+<xs:schema id="DataSet2" targetNamespace="http://tempuri.org/DataSet2.xsd" xmlns:mstns="http://tempuri.org/DataSet2.xsd" xmlns="http://tempuri.org/DataSet2.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
   <xs:annotation>
     <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
       <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
@@ -12,8 +12,10 @@
               <DbSource ConnectionRef="QLquatrinhbanhangConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
-                    <CommandText>SELECT        tblHoadon.Mahoadon, tblKhachhang.Makhachhang, tblKhachhang.Tenkhachhang, tblNhanvien.Manhanvien, tblNhanvien.Tennhanvien, tblHoadon.Ngayban
-FROM            tblHoadon INNER JOIN
+                    <CommandText>SELECT        tblChitiethoadon.Mahoadon, tblChaucay.Tenhaucay, tblChitiethoadon.Soluong, tblChitiethoadon.Dongia, tblChitiethoadon.Giamgia, tblHoadon.Ngayban, tblNhanvien.Tennhanvien, tblKhachhang.Tenkhachhang
+FROM            tblChaucay INNER JOIN
+                         tblChitiethoadon ON tblChaucay.Machaucay = tblChitiethoadon.Machaucay INNER JOIN
+                         tblHoadon ON tblChitiethoadon.Mahoadon = tblHoadon.Mahoadon INNER JOIN
                          tblKhachhang ON tblHoadon.Makhachhang = tblKhachhang.Makhachhang INNER JOIN
                          tblNhanvien ON tblHoadon.Manhanvien = tblNhanvien.Manhanvien</CommandText>
                     <Parameters />
@@ -23,11 +25,13 @@ FROM            tblHoadon INNER JOIN
             </MainSource>
             <Mappings>
               <Mapping SourceColumn="Mahoadon" DataSetColumn="Mahoadon" />
-              <Mapping SourceColumn="Makhachhang" DataSetColumn="Makhachhang" />
-              <Mapping SourceColumn="Tenkhachhang" DataSetColumn="Tenkhachhang" />
-              <Mapping SourceColumn="Manhanvien" DataSetColumn="Manhanvien" />
-              <Mapping SourceColumn="Tennhanvien" DataSetColumn="Tennhanvien" />
+              <Mapping SourceColumn="Tenhaucay" DataSetColumn="Tenhaucay" />
+              <Mapping SourceColumn="Soluong" DataSetColumn="Soluong" />
+              <Mapping SourceColumn="Dongia" DataSetColumn="Dongia" />
+              <Mapping SourceColumn="Giamgia" DataSetColumn="Giamgia" />
               <Mapping SourceColumn="Ngayban" DataSetColumn="Ngayban" />
+              <Mapping SourceColumn="Tennhanvien" DataSetColumn="Tennhanvien" />
+              <Mapping SourceColumn="Tenkhachhang" DataSetColumn="Tenkhachhang" />
             </Mappings>
             <Sources />
           </TableAdapter>
@@ -36,7 +40,7 @@ FROM            tblHoadon INNER JOIN
       </DataSource>
     </xs:appinfo>
   </xs:annotation>
-  <xs:element name="dsHoadon" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="dsHoadon" msprop:Generator_UserDSName="dsHoadon">
+  <xs:element name="DataSet2" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="DataSet2" msprop:Generator_UserDSName="DataSet2">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
         <xs:element name="DataTable1" msprop:Generator_TableClassName="DataTable1DataTable" msprop:Generator_TableVarName="tableDataTable1" msprop:Generator_TablePropName="DataTable1" msprop:Generator_RowDeletingName="DataTable1RowDeleting" msprop:Generator_RowChangingName="DataTable1RowChanging" msprop:Generator_RowEvHandlerName="DataTable1RowChangeEventHandler" msprop:Generator_RowDeletedName="DataTable1RowDeleted" msprop:Generator_UserTableName="DataTable1" msprop:Generator_RowChangedName="DataTable1RowChanged" msprop:Generator_RowEvArgName="DataTable1RowChangeEvent" msprop:Generator_RowClassName="DataTable1Row">
@@ -49,7 +53,18 @@ FROM            tblHoadon INNER JOIN
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="Makhachhang" msprop:Generator_ColumnVarNameInTable="columnMakhachhang" msprop:Generator_ColumnPropNameInRow="Makhachhang" msprop:Generator_ColumnPropNameInTable="MakhachhangColumn" msprop:Generator_UserColumnName="Makhachhang">
+              <xs:element name="Tenhaucay" msprop:Generator_ColumnVarNameInTable="columnTenhaucay" msprop:Generator_ColumnPropNameInRow="Tenhaucay" msprop:Generator_ColumnPropNameInTable="TenhaucayColumn" msprop:Generator_UserColumnName="Tenhaucay" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Soluong" msprop:Generator_ColumnVarNameInTable="columnSoluong" msprop:Generator_ColumnPropNameInRow="Soluong" msprop:Generator_ColumnPropNameInTable="SoluongColumn" msprop:Generator_UserColumnName="Soluong" type="xs:double" minOccurs="0" />
+              <xs:element name="Dongia" msprop:Generator_ColumnVarNameInTable="columnDongia" msprop:Generator_ColumnPropNameInRow="Dongia" msprop:Generator_ColumnPropNameInTable="DongiaColumn" msprop:Generator_UserColumnName="Dongia" type="xs:double" minOccurs="0" />
+              <xs:element name="Giamgia" msprop:Generator_ColumnVarNameInTable="columnGiamgia" msprop:Generator_ColumnPropNameInRow="Giamgia" msprop:Generator_ColumnPropNameInTable="GiamgiaColumn" msprop:Generator_UserColumnName="Giamgia" type="xs:double" minOccurs="0" />
+              <xs:element name="Ngayban" msprop:Generator_ColumnVarNameInTable="columnNgayban" msprop:Generator_ColumnPropNameInRow="Ngayban" msprop:Generator_ColumnPropNameInTable="NgaybanColumn" msprop:Generator_UserColumnName="Ngayban" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="Tennhanvien" msprop:Generator_ColumnVarNameInTable="columnTennhanvien" msprop:Generator_ColumnPropNameInRow="Tennhanvien" msprop:Generator_ColumnPropNameInTable="TennhanvienColumn" msprop:Generator_UserColumnName="Tennhanvien" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="50" />
@@ -63,31 +78,10 @@ FROM            tblHoadon INNER JOIN
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="Manhanvien" msprop:Generator_ColumnVarNameInTable="columnManhanvien" msprop:Generator_ColumnPropNameInRow="Manhanvien" msprop:Generator_ColumnPropNameInTable="ManhanvienColumn" msprop:Generator_UserColumnName="Manhanvien">
-                <xs:simpleType>
-                  <xs:restriction base="xs:string">
-                    <xs:maxLength value="50" />
-                  </xs:restriction>
-                </xs:simpleType>
-              </xs:element>
-              <xs:element name="Tennhanvien" msprop:Generator_ColumnVarNameInTable="columnTennhanvien" msprop:Generator_ColumnPropNameInRow="Tennhanvien" msprop:Generator_ColumnPropNameInTable="TennhanvienColumn" msprop:Generator_UserColumnName="Tennhanvien" minOccurs="0">
-                <xs:simpleType>
-                  <xs:restriction base="xs:string">
-                    <xs:maxLength value="50" />
-                  </xs:restriction>
-                </xs:simpleType>
-              </xs:element>
-              <xs:element name="Ngayban" msprop:Generator_ColumnVarNameInTable="columnNgayban" msprop:Generator_ColumnPropNameInRow="Ngayban" msprop:Generator_ColumnPropNameInTable="NgaybanColumn" msprop:Generator_UserColumnName="Ngayban" type="xs:dateTime" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>
       </xs:choice>
     </xs:complexType>
-    <xs:unique name="Constraint1" msdata:PrimaryKey="true">
-      <xs:selector xpath=".//mstns:DataTable1" />
-      <xs:field xpath="mstns:Mahoadon" />
-      <xs:field xpath="mstns:Makhachhang" />
-      <xs:field xpath="mstns:Manhanvien" />
-    </xs:unique>
   </xs:element>
 </xs:schema>

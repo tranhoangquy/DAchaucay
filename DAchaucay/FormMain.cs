@@ -95,9 +95,14 @@ namespace DAchaucay
 
         private void hóaĐơnToolStripMenuItem2_Click(object sender, EventArgs e)
         {
-            FormbaocaoHD formbaocaoHD = new FormbaocaoHD();
-            formbaocaoHD.Show();
-            Visible = false;
+            FormBaoCao formBaoCao = new FormBaoCao();
+            formBaoCao.ShowDialog();
+        }
+
+        private void hóaĐơnToolStripMenuItem3_Click(object sender, EventArgs e)
+        {
+            FormBaoCaoHD formBaoCaoHD = new FormBaoCaoHD();
+            formBaoCaoHD.ShowDialog();
         }
     }
 }

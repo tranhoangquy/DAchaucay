@@ -46,8 +46,9 @@ namespace DAchaucay
          /*   txtTongtien.Text = "0";*/
             Functions.FillCombo("SELECT Makhachhang, Tenkhachhang FROM tblKhachhang", cboTenkhach, "Tenkhachhang", "Tenkhachhang");
             cboTenkhach.SelectedIndex = -1;
-            Functions.FillCombo("SELECT Manhanvien, Tennhanvien FROM tblNhanvien", cboTennhanvien, "Tennhanvien", "Tenkhachhang");
-            cboTennhanvien.SelectedIndex = -1;
+            // Functions.FillCombo("SELECT Manhanvien, Tennhanvien FROM tblNhanvien", cboTennhanvien, "Tennhanvien", "Tenkhachhang");
+            // cboTennhanvien.SelectedIndex = -1;
+            cboTennhanvien.Text = "Nguyễn Văn A";
             Functions.FillCombo("SELECT Machaucay, Tenhaucay FROM tblChaucay", cboTenchaucay, "Tenhaucay", "Tenhaucay");
             cboTenchaucay.SelectedIndex = -1;
             //Hiển thị thông tin của một hóa đơn được gọi từ form tìm kiếm
@@ -95,6 +96,10 @@ namespace DAchaucay
 
         private void btnThemmoi_Click(object sender, EventArgs e)
         {
+            txtManhanvien.Enabled = true;
+            cboTennhanvien.Enabled = true;
+            txtManhanvien.Text = "NV01";
+            cboTennhanvien.Text = "Nguyễn Văn A";
             btnXoa.Enabled = true;
             btnLuu.Enabled = true;
             btnThemmoi.Enabled = false;

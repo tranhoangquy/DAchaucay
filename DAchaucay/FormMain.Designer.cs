@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormMain));
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.mnuFile = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuThoat = new System.Windows.Forms.ToolStripMenuItem();
@@ -39,10 +40,10 @@
             this.hóaĐơnToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.tìmKiếmToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tìmHóaĐơnToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.báoCáoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.logOutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.báoCáoToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.hóaĐơnToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
+            this.hóaĐơnToolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
+            this.logOutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -53,9 +54,8 @@
             this.danhMụcToolStripMenuItem,
             this.hóaĐơnToolStripMenuItem1,
             this.tìmKiếmToolStripMenuItem,
-            this.báoCáoToolStripMenuItem,
-            this.logOutToolStripMenuItem,
-            this.báoCáoToolStripMenuItem1});
+            this.báoCáoToolStripMenuItem1,
+            this.logOutToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(800, 24);
@@ -138,11 +138,28 @@
             this.tìmHóaĐơnToolStripMenuItem.Text = "Tìm hóa đơn";
             this.tìmHóaĐơnToolStripMenuItem.Click += new System.EventHandler(this.tìmHóaĐơnToolStripMenuItem_Click);
             // 
-            // báoCáoToolStripMenuItem
+            // báoCáoToolStripMenuItem1
             // 
-            this.báoCáoToolStripMenuItem.Name = "báoCáoToolStripMenuItem";
-            this.báoCáoToolStripMenuItem.Size = new System.Drawing.Size(61, 20);
-            this.báoCáoToolStripMenuItem.Text = "Báo cáo";
+            this.báoCáoToolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.hóaĐơnToolStripMenuItem2,
+            this.hóaĐơnToolStripMenuItem3});
+            this.báoCáoToolStripMenuItem1.Name = "báoCáoToolStripMenuItem1";
+            this.báoCáoToolStripMenuItem1.Size = new System.Drawing.Size(61, 20);
+            this.báoCáoToolStripMenuItem1.Text = "Báo cáo";
+            // 
+            // hóaĐơnToolStripMenuItem2
+            // 
+            this.hóaĐơnToolStripMenuItem2.Name = "hóaĐơnToolStripMenuItem2";
+            this.hóaĐơnToolStripMenuItem2.Size = new System.Drawing.Size(123, 22);
+            this.hóaĐơnToolStripMenuItem2.Text = "Chậu cây";
+            this.hóaĐơnToolStripMenuItem2.Click += new System.EventHandler(this.hóaĐơnToolStripMenuItem2_Click);
+            // 
+            // hóaĐơnToolStripMenuItem3
+            // 
+            this.hóaĐơnToolStripMenuItem3.Name = "hóaĐơnToolStripMenuItem3";
+            this.hóaĐơnToolStripMenuItem3.Size = new System.Drawing.Size(123, 22);
+            this.hóaĐơnToolStripMenuItem3.Text = "Hóa đơn";
+            this.hóaĐơnToolStripMenuItem3.Click += new System.EventHandler(this.hóaĐơnToolStripMenuItem3_Click);
             // 
             // logOutToolStripMenuItem
             // 
@@ -153,25 +170,12 @@
             this.logOutToolStripMenuItem.Text = "Log out";
             this.logOutToolStripMenuItem.Click += new System.EventHandler(this.logOutToolStripMenuItem_Click);
             // 
-            // báoCáoToolStripMenuItem1
-            // 
-            this.báoCáoToolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.hóaĐơnToolStripMenuItem2});
-            this.báoCáoToolStripMenuItem1.Name = "báoCáoToolStripMenuItem1";
-            this.báoCáoToolStripMenuItem1.Size = new System.Drawing.Size(61, 20);
-            this.báoCáoToolStripMenuItem1.Text = "Báo cáo";
-            // 
-            // hóaĐơnToolStripMenuItem2
-            // 
-            this.hóaĐơnToolStripMenuItem2.Name = "hóaĐơnToolStripMenuItem2";
-            this.hóaĐơnToolStripMenuItem2.Size = new System.Drawing.Size(180, 22);
-            this.hóaĐơnToolStripMenuItem2.Text = "Hóa đơn";
-            this.hóaĐơnToolStripMenuItem2.Click += new System.EventHandler(this.hóaĐơnToolStripMenuItem2_Click);
-            // 
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
@@ -196,12 +200,12 @@
         private System.Windows.Forms.ToolStripMenuItem hóaĐơnToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem hóaĐơnToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem tìmKiếmToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem báoCáoToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem mnuThoat;
         private System.Windows.Forms.ToolStripMenuItem logOutToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem tìmHóaĐơnToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem báoCáoToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem hóaĐơnToolStripMenuItem2;
+        private System.Windows.Forms.ToolStripMenuItem hóaĐơnToolStripMenuItem3;
     }
 }
 

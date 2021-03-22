@@ -46,7 +46,7 @@ SELECT Machaucay, Maloaichaucay, Tenhaucay, Kichthuoc, Dongia, Anh, Soluong FROM
                 </InsertCommand>
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
-                    <CommandText>SELECT        Machaucay, Maloaichaucay, Tenhaucay, Kichthuoc, Dongia, Anh, Soluong
+                    <CommandText>SELECT        tblChaucay.*
 FROM            tblChaucay</CommandText>
                     <Parameters />
                   </DbCommand>
