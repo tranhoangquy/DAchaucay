@@ -66,6 +66,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Class\User.cs" />
     <Compile Include="Class\Functions.cs" />
     <Compile Include="Class\SqlHelper.cs" />
     <Compile Include="CrystalReport1.cs">

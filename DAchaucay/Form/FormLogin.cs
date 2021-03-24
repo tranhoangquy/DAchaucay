@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DAchaucay.Class;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -41,6 +42,7 @@ namespace DAchaucay
                 //If count is equal to 1, than show frmMain form
                 if (count == 1)
                 {
+                    User.userId = ds.Tables[0].Rows[0].ItemArray[0].ToString().Trim();
                     MessageBox.Show("Đăng nhập thành công!");
                     this.Hide();
                     FormMain fm = new FormMain();

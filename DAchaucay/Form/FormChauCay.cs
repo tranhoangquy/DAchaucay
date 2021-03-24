@@ -28,7 +28,8 @@ namespace DAchaucay
         {
             string sql;
             sql = "SELECT Maloaichaucay, Loaichaucay from tblLoaichaucay";
-            txtMaCC.ReadOnly = true;
+            
+
             btnLuu.Enabled = false;
             btnBoQua.Enabled = false;
             LoadDataGridView();

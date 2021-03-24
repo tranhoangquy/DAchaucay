@@ -40,17 +40,20 @@ namespace DAchaucay
             txtDiachi.ReadOnly = true;
             txtMachaucay.ReadOnly = true;
             txtDongia.ReadOnly = true;
-           /* txtThanhtien.ReadOnly = true;
-            txtTongtien.ReadOnly = true;*/
+            /* txtThanhtien.ReadOnly = true;
+             txtTongtien.ReadOnly = true;*/
             txtGiamgia.Text = "0";
-         /*   txtTongtien.Text = "0";*/
+            /*   txtTongtien.Text = "0";*/
             Functions.FillCombo("SELECT Makhachhang, Tenkhachhang FROM tblKhachhang", cboTenkhach, "Tenkhachhang", "Tenkhachhang");
             cboTenkhach.SelectedIndex = -1;
-            // Functions.FillCombo("SELECT Manhanvien, Tennhanvien FROM tblNhanvien", cboTennhanvien, "Tennhanvien", "Tenkhachhang");
-            // cboTennhanvien.SelectedIndex = -1;
-            cboTennhanvien.Text = "Nguyễn Văn A";
+
+            Functions.FillCombo("SELECT Manhanvien, Tennhanvien FROM tblNhanvien", cboTennhanvien, "Tennhanvien", "Tennhanvien");
+            cboTenkhach.SelectedIndex = -1;
+            // var sql = "select manhanvien, tennhanvien from tblnhanvien where manhanvien = n'" + user.userid + "'";
+            //functions.fillcombo(sql, cbotennhanvien, "tennhanvien", "tennhanvien");
+            //cbotennhanvien.selectedindex = -1;
             Functions.FillCombo("SELECT Machaucay, Tenhaucay FROM tblChaucay", cboTenchaucay, "Tenhaucay", "Tenhaucay");
-            cboTenchaucay.SelectedIndex = -1;
+            // cboTenchaucay.SelectedIndex = -1;
             //Hiển thị thông tin của một hóa đơn được gọi từ form tìm kiếm
             if (txtMaHDBan.Text != "")
             {
@@ -69,7 +72,7 @@ namespace DAchaucay
             txtManhanvien.Text = Functions.GetFieldValues(str);
             str = "SELECT Makhachhang FROM tblHoadon WHERE Mahoadon = N'" + txtMaHDBan.Text + "'";
             txtMakhach.Text = Functions.GetFieldValues(str);
-            
+
         }
 
         private void LoadDataGridView()
@@ -83,7 +86,7 @@ namespace DAchaucay
             DataGridView.Columns[2].HeaderText = "Số lượng";
             DataGridView.Columns[3].HeaderText = "Đơn giá";
             DataGridView.Columns[4].HeaderText = "Giảm giá %";
-          /*  DataGridView.Columns[5].HeaderText = "Thành tiền";*/
+            /*  DataGridView.Columns[5].HeaderText = "Thành tiền";*/
             DataGridView.Columns[0].Width = 80;
             DataGridView.Columns[1].Width = 130;
             DataGridView.Columns[2].Width = 80;
@@ -217,26 +220,26 @@ namespace DAchaucay
                 sql = "DELETE tblChitiethoadon WHERE Mahoadon=N'" + txtMaHDBan.Text + "' AND Machaucay = N'" + mahangxoa + "'";
                 Functions.RunSQL(sql);
                 // Cập nhật lại số lượng cho các mặt hàng
-               /* sl = Convert.ToDouble(Functions.GetFieldValues("SELECT Soluong FROM tblHang WHERE Mahang = N'" + mahangxoa + "'"));
-                slcon = sl + soluongxoa;
-                sql = "UPDATE tblHang SET Soluong =" + slcon + " WHERE Mahang= N'" + mahangxoa + "'";
-                Functions.RunSQL(sql);*/
+                /* sl = Convert.ToDouble(Functions.GetFieldValues("SELECT Soluong FROM tblHang WHERE Mahang = N'" + mahangxoa + "'"));
+                 slcon = sl + soluongxoa;
+                 sql = "UPDATE tblHang SET Soluong =" + slcon + " WHERE Mahang= N'" + mahangxoa + "'";
+                 Functions.RunSQL(sql);*/
                 // Cập nhật lại tổng tiền cho hóa đơn bán
-              /*  tong = Convert.ToDouble(Functions.GetFieldValues("SELECT Tongtien FROM tblHDBan WHERE MaHDBan = N'" + txtMaHDBan.Text + "'"));
-                tongmoi = tong - thanhtienxoa;*/
-               /* sql = "UPDATE tblHDBan SET Tongtien =" + tongmoi + " WHERE MaHDBan = N'" + txtMaHDBan.Text + "'";*/
+                /*  tong = Convert.ToDouble(Functions.GetFieldValues("SELECT Tongtien FROM tblHDBan WHERE MaHDBan = N'" + txtMaHDBan.Text + "'"));
+                  tongmoi = tong - thanhtienxoa;*/
+                /* sql = "UPDATE tblHDBan SET Tongtien =" + tongmoi + " WHERE MaHDBan = N'" + txtMaHDBan.Text + "'";*/
                 Functions.RunSQL(sql);
-           /*     txtTongtien.Text = tongmoi.ToString();*/
+                /*     txtTongtien.Text = tongmoi.ToString();*/
                 //lblBangchu.Text = "Bằng chữ: " + Functions.ChuyenSoSangChu(tongmoi.ToString());
                 LoadDataGridView();
             }
         }
 
-       
 
-      
 
-       
+
+
+
 
         private void btnDong_Click(object sender, EventArgs e)
         {
@@ -273,14 +276,14 @@ namespace DAchaucay
                 LoadDataGridView();
                 btnXoa.Enabled = true;
                 btnThemmoi.Enabled = true;
-               /* btnInhoadon.Enabled = false;*/
+                /* btnInhoadon.Enabled = false;*/
             }
         }
 
         private void cboMaHD_DropDown(object sender, EventArgs e)
         {
-                Functions.FillCombo("SELECT Mahoadon FROM tblHoadon", cboMaHD, "Mahoadon", "Mahoadon");
-                cboMaHD.SelectedIndex = -1;
+            Functions.FillCombo("SELECT Mahoadon FROM tblHoadon", cboMaHD, "Mahoadon", "Mahoadon");
+            cboMaHD.SelectedIndex = -1;
         }
 
         private void btnTimKiem_Click(object sender, EventArgs e)
@@ -296,7 +299,7 @@ namespace DAchaucay
             LoadDataGridView();
             btnXoa.Enabled = true;
             btnLuu.Enabled = true;
-           btnInhoadon.Enabled = true;
+            btnInhoadon.Enabled = true;
             cboMaHD.SelectedIndex = -1;
         }
 
@@ -466,39 +469,39 @@ namespace DAchaucay
 
         private void txtMakhach_TextChanged(object sender, EventArgs e)
         {
-            string str;
-            if (txtMakhach.Text == "")
-            {
-                cboTenkhach.Text = "";
-                txtDiachi.Text = "";
-                txtDienthoai.Text = "";
-            }
-            //Khi chọn Mã khách hàng thì các thông tin của khách hàng sẽ hiện ra
-            str = "Select Tenkhachhang from tblKhachhang where Makhachhang = N'" + txtMakhach.Text.Trim() + "'";
-            cboTenkhach.Text = Functions.GetFieldValues(str);
-            str = "Select Diachi from tblKhachhang where Makhachhang = N'" + txtMakhach.Text.Trim() + "'";
-            txtDiachi.Text = Functions.GetFieldValues(str);
-            str = "Select Dienthoai from tblKhachhang where Makhachhang= N'" + txtMakhach.Text.Trim() + "'";
-            txtDienthoai.Text = Functions.GetFieldValues(str);
+            /* string str;
+         if (txtMakhach.Text == "")
+         {
+             cboTenkhach.Text = "";
+             txtDiachi.Text = "";
+             txtDienthoai.Text = "";
+         }
+         //Khi chọn Mã khách hàng thì các thông tin của khách hàng sẽ hiện ra
+         str = "Select Tenkhachhang from tblKhachhang where Makhachhang = N'" + txtMakhach.Text.Trim() + "'";
+         cboTenkhach.Text = Functions.GetFieldValues(str);
+         str = "Select Diachi from tblKhachhang where Makhachhang = N'" + txtMakhach.Text.Trim() + "'";
+         txtDiachi.Text = Functions.GetFieldValues(str);
+         str = "Select Dienthoai from tblKhachhang where Makhachhang= N'" + txtMakhach.Text.Trim() + "'";
+         txtDienthoai.Text = Functions.GetFieldValues(str);  */
         }
 
         private void txtDienthoai_TextChanged(object sender, EventArgs e)
-        {
-            string str;
-            if (txtDienthoai.Text == "")
-            {
-                cboTenkhach.Text = "";
-                txtDiachi.Text = "";
-                txtMakhach.Text = "";
-            }
-            //Khi chọn Mã khách hàng thì các thông tin của khách hàng sẽ hiện ra
-            str = "Select Tenkhachhang from tblKhachhang where Dienthoai = N'" + txtDienthoai.Text.Trim() + "'";
-            cboTenkhach.Text = Functions.GetFieldValues(str);
-            str = "Select Diachi from tblKhachhang where Dienthoai = N'" + txtDienthoai.Text.Trim() + "'";
-            txtDiachi.Text = Functions.GetFieldValues(str);
-            str = "Select Makhachhang from tblKhachhang where Dienthoai= N'" + txtDienthoai.Text.Trim() + "'";
-            cboTenkhach.Text = Functions.GetFieldValues(str);
+        {  /*
+              string str;
+              if (txtDienthoai.Text == "")
+              {
+                  cboTenkhach.Text = "";
+                  txtDiachi.Text = "";
+                  txtMakhach.Text = "";
+              }
+              //Khi chọn Mã khách hàng thì các thông tin của khách hàng sẽ hiện ra
+              str = "Select Tenkhachhang from tblKhachhang where Dienthoai = N'" + txtDienthoai.Text.Trim() + "'";
+              cboTenkhach.Text = Functions.GetFieldValues(str);
+              str = "Select Diachi from tblKhachhang where Dienthoai = N'" + txtDienthoai.Text.Trim() + "'";
+              txtDiachi.Text = Functions.GetFieldValues(str);
+              str = "Select Makhachhang from tblKhachhang where Dienthoai= N'" + txtDienthoai.Text.Trim() + "'";
+              cboTenkhach.Text = Functions.GetFieldValues(str); */
         }
     }
-    
+
 }
