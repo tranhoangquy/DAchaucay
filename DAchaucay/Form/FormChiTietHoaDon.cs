@@ -132,7 +132,7 @@ namespace DAchaucay
 
         private void btnLuu_Click(object sender, EventArgs e)
         {
-            string sql;
+            string sql, checksolong,sll,giamtien;
             double sl, SLcon, tong, Tongmoi;
             sql = "SELECT Mahoadon FROM tblHoadon WHERE Mahoadon=N'" + txtMaHDBan.Text + "'";
             if (!Functions.CheckKey(sql))
@@ -162,7 +162,20 @@ namespace DAchaucay
                       txtMakhach.Text.Trim() + "')";
                 Functions.RunSQL(sql);
             }
-            // Lưu thông tin của các mặt hàng
+
+
+            sl = Convert.ToDouble(Functions.GetFieldValues("SELECT SoLuong FROM tblChaucay WHERE Tenhaucay = N'" + cboTenchaucay.SelectedValue + "'"));
+            if (Convert.ToDouble(txtSoluong.Text) > sl)
+            {
+                MessageBox.Show("Số lượng mặt hàng này chỉ còn " + sl, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                txtSoluong.Text = "";
+                txtSoluong.Focus();
+                return;
+            }
+
+
+
+
             if (txtMachaucay.Text.Trim().Length == 0)
             {
                 MessageBox.Show("Bạn phải nhập chậu cây", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -182,6 +195,22 @@ namespace DAchaucay
                 txtGiamgia.Focus();
                 return;
             }
+            double sl2, gn, tt, gd;
+            if (txtDongia.Text == "")
+                gn = 0;
+            else
+                gn = Convert.ToDouble(txtDongia.Text);
+            if (txtSoluong.Text == "")
+                sl2 = 0;
+            else
+                sl = Convert.ToDouble(txtSoluong.Text);
+            if (txtGiamgia.Text == "")
+            {
+                gd = 0;
+            }
+            else gd = Convert.ToDouble(txtGiamgia.Text);
+            tt = gn * sl;
+            txtThanhtien.Text = tt.ToString();
             sql = "SELECT Machaucay FROM tblChitiethoadon WHERE Machaucay=N'" + txtMachaucay.Text.Trim() + "' AND Mahoadon = N'" + txtMaHDBan.Text.Trim() + "'";
             if (Functions.CheckKey(sql))
             {
@@ -190,9 +219,7 @@ namespace DAchaucay
                 txtMachaucay.Focus();
                 return;
             }
-            sql = "INSERT INTO tblChitiethoadon(Mahoadon,Machaucay,Soluong, Dongia,Giamgia) VALUES(N'" + txtMaHDBan.Text.Trim() + "',N'" + txtMachaucay.Text.Trim() + "'," + txtSoluong.Text + "," + txtDongia.Text + "," + txtGiamgia.Text + ")";
-            Functions.RunSQL(sql);
-            LoadDataGridView();
+            
         }
 
         private void ResetValuesHang()
@@ -349,10 +376,10 @@ namespace DAchaucay
             txtMachaucay.Text = Functions.GetFieldValues(str);
             str = "SELECT Dongia FROM tblChaucay WHERE Tenhaucay =N'" + cboTenchaucay.SelectedValue + "'";
             txtDongia.Text = Functions.GetFieldValues(str);
-            /*  str = "SELECT Soluong FROM tblHang WHERE Machaucay =N'" + cboMachaucay.SelectedValue + "'";
-              txtTon.Text = Functions.GetFieldValues(str);
-              str = "SELECT Ghichu FROM tblHang WHERE Machaucay =N'" + cboMachaucay.SelectedValue + "'";
-              txtBH.Text = Functions.GetFieldValues(str);*/
+            str = "SELECT Soluong from tblChaucay where Tenhaucay =N'" + cboTenchaucay.SelectedValue + "'";
+                txtSoluong.Text = Functions.GetFieldValues(str);
+            /*  str = "SELECT Ghichu FROM tblHang WHERE Machaucay =N'" + cboMachaucay.SelectedValue + "'";
+         txtBH.Text = Functions.GetFieldValues(str);*/
         }
 
         private void btnInhoadon_Click(object sender, EventArgs e)

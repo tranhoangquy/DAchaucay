@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using DAchaucay.Class;
+using System.Data;
 using System.Data.SqlClient;
 namespace DAchaucay
 {
@@ -27,13 +28,12 @@ namespace DAchaucay
         private void FormChauCay_Load(object sender, EventArgs e)
         {
             string sql;
-            sql = "SELECT Maloaichaucay, Loaichaucay from tblLoaichaucay";
-            
-
+            sql = "SELECT * from tblChaucay";
+            txtMaCC.Enabled = true;
             btnLuu.Enabled = false;
             btnBoQua.Enabled = false;
             LoadDataGridView();
-            Functions.FillCombo(sql, cboTenCC, "Loaichaucay", "Loaichaucay");
+            Functions.FillCombo(sql, cboTenCC, "Maloaichaucay", "Loaichaucay");
             cboTenCC.SelectedIndex = -1;
             ResetValues();
         }
@@ -65,8 +65,8 @@ namespace DAchaucay
         private void ResetValues()
         {
             txtMaCC.Text = "";
-            txtMaCC.Text = "";
             cboTenCC.Text = "";
+            txtMaLCC.Text = "";
             txtSoluong.Text = "0";
             txtDongia.Text = "0";
             txtSoluong.Enabled = true;
@@ -94,7 +94,7 @@ namespace DAchaucay
             cboTenCC.Text = dgvCC.CurrentRow.Cells["Tenhaucay"].Value.ToString();
             Maloaichaucay = dgvCC.CurrentRow.Cells["Maloaichaucay"].Value.ToString();
             sql = "SELECT Maloaichaucay FROM tblLoaichaucay WHERE Maloaichaucay=N'" + Maloaichaucay + "'";
-            txtMaCC.Text = Functions.GetFieldValues(sql);
+            txtMaLCC.Text = Functions.GetFieldValues(sql);
             txtSoluong.Text = dgvCC.CurrentRow.Cells["SoLuong"].Value.ToString();
             txtKichthuoc.Text = dgvCC.CurrentRow.Cells["Kichthuoc"].Value.ToString();
             txtDongia.Text = dgvCC.CurrentRow.Cells["Dongia"].Value.ToString();
@@ -136,10 +136,10 @@ namespace DAchaucay
                 cboTenCC.Focus();
                 return;
             }
-            if (txtMaCC.Text.Trim().Length == 0)
+            if (txtMaLCC.Text.Trim().Length == 0)
             {
                 MessageBox.Show("Bạn phải nhập mã loại chậu cây", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                txtMaCC.Focus();
+                txtMaLCC.Focus();
                 return;
             }
             if (txtKichthuoc.Text.Trim().Length == 0)
@@ -167,7 +167,7 @@ namespace DAchaucay
                    "'," + txtSoluong.Text.Trim() + "," + txtDongia.Text +
                    ",'" + txtAnh.Text + "')";*/
             sql = "INSERT INTO tblChaucay(Machaucay,Maloaichaucay,Tenhaucay,Kichthuoc, Dongia,Anh,Soluong) VALUES(N'"
-      + txtMaCC.Text.Trim() + "',N'" + txtMaCC.Text.Trim() +
+      + txtMaCC.Text.Trim() + "',N'" + txtMaLCC.Text.Trim() +
       "',N'" +cboTenCC.SelectedValue.ToString() +
       "','" + txtKichthuoc.Text.Trim() + "'," + txtDongia.Text +
       ",'" + txtAnh.Text + "','" + txtSoluong.Text +  "')";
@@ -217,10 +217,10 @@ namespace DAchaucay
                 cboTenCC.Focus();
                 return;
             }
-            if (txtMaCC.Text.Trim().Length == 0)
+            if (txtMaLCC.Text.Trim().Length == 0)
             {
                 MessageBox.Show("Bạn phải nhập chất liệu", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                txtMaCC.Focus();
+                txtMaLCC.Focus();
                 return;
             }
             if (txtAnh.Text.Trim().Length == 0)
@@ -269,7 +269,7 @@ namespace DAchaucay
                 btnThem.Enabled = true;
                 btnBoQua.Enabled = false;
                 btnLuu.Enabled = false;
-                txtMaCC.Enabled = false;
+                txtMaCC.Enabled = true;
             
         }
 
@@ -283,7 +283,11 @@ namespace DAchaucay
         private void btnTimkiem_Click(object sender, EventArgs e)
         {
             string sql;
-          
+            if ((txtMaCC.Text == "")/* && (txtTenCC.Text == "") && (cboMaLCC.Text == "")*/)
+            {
+                MessageBox.Show("Bạn hãy nhập điều kiện tìm kiếm", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
             sql = "SELECT * from tblChaucay WHERE 1=1";
             if (txtMaCC.Text != "")
                 sql += " AND Machaucay LIKE N'%" + txtMaCC.Text + "%'";

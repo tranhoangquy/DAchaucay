@@ -70,6 +70,8 @@
             this.label13 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
+            this.txtThanhtien = new System.Windows.Forms.TextBox();
+            this.label16 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
@@ -343,6 +345,8 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.label16);
+            this.groupBox2.Controls.Add(this.txtThanhtien);
             this.groupBox2.Controls.Add(this.txtMachaucay);
             this.groupBox2.Controls.Add(this.cboTenchaucay);
             this.groupBox2.Controls.Add(this.btnDong);
@@ -497,6 +501,22 @@
             this.label11.Text = "Mã chậu cây";
             this.label11.Click += new System.EventHandler(this.label11_Click);
             // 
+            // txtThanhtien
+            // 
+            this.txtThanhtien.Location = new System.Drawing.Point(603, 51);
+            this.txtThanhtien.Name = "txtThanhtien";
+            this.txtThanhtien.Size = new System.Drawing.Size(139, 20);
+            this.txtThanhtien.TabIndex = 17;
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Location = new System.Drawing.Point(542, 57);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(52, 13);
+            this.label16.TabIndex = 18;
+            this.label16.Text = "Tổng tiền";
+            // 
             // FormChiTietHoaDon
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -567,5 +587,7 @@
         private System.Windows.Forms.TextBox txtMachaucay;
         private System.Windows.Forms.Button btnInhoadon;
         private System.Windows.Forms.Button btnThemkhachhang;
+        private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.TextBox txtThanhtien;
     }
 }
